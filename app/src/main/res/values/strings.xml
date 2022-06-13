@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ProyectoFinal</string>
+    <!--LoginActivity-->
+    <string name="img">img</string>
+    <string name="login">INICIAR SESION</string>
+    <string name="create_account">CREAR CUENTA</string>
+    <string name="mail">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="app_version">VERSION 1.0</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="confirm_password">Confirmar Contraseña</string>
+    <string name="create_your_account">Crea tu cuenta</string>
+    <string name="inf_create_account">Ingresa tu información para crear tu cuenta</string>
+    <string name="name">Nombre</string>
 </resources>

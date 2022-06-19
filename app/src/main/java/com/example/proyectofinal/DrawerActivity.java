@@ -1,9 +1,13 @@
 package com.example.proyectofinal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -13,7 +17,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.proyectofinal.databinding.ActivityDrawerBinding;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 public class DrawerActivity extends AppCompatActivity {
 
@@ -31,8 +34,7 @@ public class DrawerActivity extends AppCompatActivity {
         binding.appBarDrawer.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                scaner();
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -48,6 +50,17 @@ public class DrawerActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
+    public void scaner() {
+        Intent scaner = new Intent(this, CodigoQR.class);
+        startActivity(scaner);
+        finish();
+    }
+    public void map() {
+        Intent map = new Intent(this, Mapa.class);
+        startActivity(map);
+        finish();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -61,4 +74,20 @@ public class DrawerActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.cam: {
+                map();
+                //Toast.makeText(this, "Hola", Toast.LENGTH_SHORT).show();
+
+                return true;
+            }
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
 }

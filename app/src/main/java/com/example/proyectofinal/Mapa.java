@@ -97,6 +97,9 @@ public class Mapa extends AppCompatActivity
         //Inicialización y añade tiendas en lista
         for(int i = 1; i<cantidadTiendas+1; i++)
         {
+            System.out.println(preferencias.getString("tienda"+i+"Lat", "null"));
+            System.out.println(preferencias.getString("tienda"+i+"Long", "null"));
+
             double latitud = Double.parseDouble(preferencias.getString("tienda"+i+"Lat", "null"));
             double longitud = Double.parseDouble(preferencias.getString("tienda"+i+"Long", "null"));
 

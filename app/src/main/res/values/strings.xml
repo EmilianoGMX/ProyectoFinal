@@ -24,4 +24,6 @@
     <string name="menu_home">Inicio</string>
     <string name="menu_prom">Promocion scan</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="boton_qr">Escanea tu codigo QR 1</string>
 </resources>

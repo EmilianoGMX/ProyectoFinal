@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme.DayNight">
         <activity
+            android:name=".CodigoQR"
+            android:exported="false" />
+        <activity
             android:name=".DrawerActivity"
             android:exported="false"
             android:label="@string/title_activity_drawer"

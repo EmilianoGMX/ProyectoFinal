@@ -33,7 +33,7 @@ public class CodigoQR extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                IntentIntegrator intento = new IntentIntegrator(CodigoQR.this);       //Intento para la integración del lector QR al activity
+                IntentIntegrator intento = new IntentIntegrator(CodigoQR.this);         //Intento para la integración del lector QR al activity
                 intento.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);           //Se aceptan todos los tipos de códigos
                 intento.setPrompt("Scan");                                                   //Mensaje
                 intento.setCameraId(0);                                                      //Se selecciona la camara

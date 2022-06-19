@@ -106,6 +106,7 @@ public class Mapa extends AppCompatActivity
             Marker marcador = new Marker(mapa);
             marcador.setPosition(new GeoPoint(latitud, longitud));
             marcador.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+            marcador.setTitle("Tienda " + i);
 
             marcadores.add(marcador);
         }

@@ -2,11 +2,13 @@ package com.example.proyectofinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentResult;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -46,9 +48,31 @@ public class CodigoQR extends AppCompatActivity
     //Se manda a llamar este método una vez es leído un código QR
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        IntentResult resultado = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        IntentResult resultado = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);   //R
 
-        super.onActivityResult(requestCode, resultCode, data);
+        if(resultado != null)
+        {
+            if(resultado.getContents() == null)
+            {
+                MostrarToast("No hay información");
+            }else{
+                txtResultado.setText(resultado.getContents());
+            }
+        }else{
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    //Método para mostrar toast
+    //Depuracion
+    private void MostrarToast(String texto)
+    {
+        Context context = getApplicationContext();
+        CharSequence text = texto;
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
 }

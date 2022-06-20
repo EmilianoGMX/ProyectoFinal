@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ import java.util.prefs.Preferences;
 
 public class HomeFragment extends Fragment {
     List<ListElement> elements;
-
+    Button btnRecargar;
 
     private FragmentHomeBinding binding;
 
@@ -35,6 +36,16 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        btnRecargar = binding.btnRecargar;
+
+        btnRecargar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                initComponents();
+            }
+        });
+
         initComponents();
 
         /*final TextView textView = binding.textHome;

@@ -34,11 +34,11 @@ public class DrawerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //click al lector
-                qr();
                 finish();
                 overridePendingTransition(0, 0);
                 startActivity(getIntent());
                 overridePendingTransition(0, 0);
+                qr();
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

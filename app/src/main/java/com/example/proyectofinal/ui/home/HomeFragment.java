@@ -1,5 +1,7 @@
 package com.example.proyectofinal.ui.home;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import com.example.proyectofinal.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.prefs.Preferences;
 
 public class HomeFragment extends Fragment {
     List<ListElement> elements;
@@ -43,6 +46,8 @@ public class HomeFragment extends Fragment {
         elements = new ArrayList<>();
         elements.add(new ListElement("#C0392B", "25% de Descuento", "   Activo"));
 
+        SharedPreferences preferences = getActivity().getSharedPreferences("cupones", Context.MODE_PRIVATE);
+        System.out.println(preferences.getInt("cantidad", 0));
 
 
         ListAdapter listAdapter = new ListAdapter(elements, getContext());

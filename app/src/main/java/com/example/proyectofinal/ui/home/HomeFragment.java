@@ -56,14 +56,15 @@ public class HomeFragment extends Fragment {
 
     private void initComponents() {
         elements = new ArrayList<>();
-        elements.add(new ListElement("#C0392B", "25% de Descuento", "   Activo"));
-        elements.add(new ListElement("#C4393B", "50% de Descuento", "   Activo"));
+        elements.add(new ListElement("#C0392B", "Manzanas", "   25%"));
+        elements.add(new ListElement("#C4393B", "Guayabas", "   50%"));
 
         SharedPreferences preferences = getActivity().getSharedPreferences("cupones", Context.MODE_PRIVATE);
         int cantidad = preferences.getInt("cantidad", 0);
 
         for(int i = 1; i<cantidad; i++)
         {
+            MostrarToast("Hola");
             String producto = preferences.getString("Producto"+i, "Manzanas");
             String descuento = preferences.getString("Descuento"+i, "15%");
             String color = preferences.getString("Color"+i, "#C0392B");

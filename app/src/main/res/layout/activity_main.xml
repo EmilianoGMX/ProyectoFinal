@@ -67,6 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/general_height"
             android:layout_marginTop="@dimen/general_margin"
+            android:onClick="iniciarSesion"
             android:text="@string/login" />
 
     </LinearLayout>
@@ -79,6 +80,7 @@
         android:layout_marginStart="@dimen/general_margin"
         android:layout_marginEnd="@dimen/general_margin"
         android:layout_marginBottom="@dimen/general_margin"
+        android:onClick="crearCuenta"
         android:text="@string/create_account"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"

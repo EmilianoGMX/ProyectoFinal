@@ -3,25 +3,77 @@ package com.example.proyectofinal;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyectofinal.databinding.ActivityCrearCuentaBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class CrearCuentaActivity extends AppCompatActivity {
 
-    private ActivityCrearCuentaBinding binding;
+    private FirebaseAuth mAuth;
+    private EditText correo;
+    private EditText contrasena;
+    private EditText contrasenaConfirmacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityCrearCuentaBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(R.layout.activity_crear_cuenta);
 
-        setListeners();
+        mAuth = FirebaseAuth.getInstance();
+        correo=findViewById(R.id.txtMail);
+        contrasena=findViewById(R.id.txtPassword);
+        contrasenaConfirmacion=findViewById(R.id.txtConfirmPassword);
 
+    }//oncreate
+
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        // updateUI(currentUser);
     }
+
+    public void registrarUsuario(View view){
+
+        if(contrasena.getText().toString().equals(contrasenaConfirmacion.getText().toString())){
+
+            mAuth.createUserWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Toast.makeText(getApplicationContext(), "Usuairo creado", Toast.LENGTH_SHORT).show();
+
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Intent i =new Intent(getApplicationContext(),MainActivity.class);
+                                startActivity(i);
+                                //updateUI(user);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                //updateUI(null);
+                            }
+
+                            // ...
+                        }
+                    });
+
+        }else{
+            Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }//registrar
 
     //Método el botón login
     public void login(View view) {
@@ -30,7 +82,5 @@ public class CrearCuentaActivity extends AppCompatActivity {
         finish();
     }
 
-    private void setListeners() {
-        binding.toolbar.setNavigationOnClickListener(this::login );
-    }
-}
+
+}//class

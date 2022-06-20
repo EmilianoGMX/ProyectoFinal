@@ -68,14 +68,12 @@ public class DrawerActivity extends AppCompatActivity {
     public void mapa() {
         Intent mapa = new Intent(this, Mapa.class);
         startActivity(mapa);
-        finish();
     }
 
     //click al qr
     public void qr() {
         Intent qr = new Intent(this, LectorQR.class);
         startActivity(qr);
-        finish();
     }
 
     //click de los item del menu

@@ -91,9 +91,11 @@ public class LectorQR extends AppCompatActivity
 
                 editor.putInt("cantidad", cantidad++);
 
-                editor.putString("Producto"+cantidad++, producto).commit();
-                editor.putString("Descuento"+cantidad++, descuento).commit();
-                editor.putString("Color"+cantidad++, color).commit();
+                editor.putString("Producto"+cantidad++, producto);
+                editor.putString("Descuento"+cantidad++, descuento);
+                editor.putString("Color"+cantidad++, color);
+
+                editor.commit();
 
                 System.out.println("Producto: " + producto);
                 System.out.println("Descuento: " + descuento);

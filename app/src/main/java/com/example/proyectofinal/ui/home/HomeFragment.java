@@ -46,6 +46,7 @@ public class HomeFragment extends Fragment {
     private void initComponents() {
         elements = new ArrayList<>();
         elements.add(new ListElement("#C0392B", "25% de Descuento", "   Activo"));
+        elements.add(new ListElement("#C4393B", "50% de Descuento", "   Activo"));
 
         SharedPreferences preferences = getActivity().getSharedPreferences("cupones", Context.MODE_PRIVATE);
         int cantidad = preferences.getInt("cantidad", 0);

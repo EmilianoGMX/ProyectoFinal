@@ -48,7 +48,15 @@ public class HomeFragment extends Fragment {
         elements.add(new ListElement("#C0392B", "25% de Descuento", "   Activo"));
 
         SharedPreferences preferences = getActivity().getSharedPreferences("cupones", Context.MODE_PRIVATE);
-        MostrarToast(Integer.toString(preferences.getInt("cantidad", 0)));
+        int cantidad = preferences.getInt("cantidad", 0);
+
+        for(int i = 1; i<cantidad; i++)
+        {
+            String producto = preferences.getString("Producto"+i, "Manzanas");
+            String descuento = preferences.getString("Descuento"+i, "15%");
+            String color = preferences.getString("Color"+i, "#C0392B");
+            elements.add(new ListElement(color, producto, descuento+ "%"));
+        }
 
         ListAdapter listAdapter = new ListAdapter(elements, getContext());
         RecyclerView recyclerView = binding.RecyclerView;

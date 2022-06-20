@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -47,8 +48,7 @@ public class HomeFragment extends Fragment {
         elements.add(new ListElement("#C0392B", "25% de Descuento", "   Activo"));
 
         SharedPreferences preferences = getActivity().getSharedPreferences("cupones", Context.MODE_PRIVATE);
-        System.out.println(preferences.getInt("cantidad", 0));
-
+        MostrarToast(Integer.toString(preferences.getInt("cantidad", 0)));
 
         ListAdapter listAdapter = new ListAdapter(elements, getContext());
         RecyclerView recyclerView = binding.RecyclerView;
@@ -61,5 +61,17 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    //Método para mostrar toast
+    //Depuracion
+    private void MostrarToast(String texto)
+    {
+        Context context = getActivity().getApplicationContext();
+        CharSequence text = texto;
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 }

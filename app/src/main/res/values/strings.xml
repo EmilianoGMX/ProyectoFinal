@@ -26,4 +26,6 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="menu_mapa">Mapa</string>
+
+    <string name="boton_qr">Escanear</string>
 </resources>

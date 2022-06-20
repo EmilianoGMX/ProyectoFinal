@@ -99,6 +99,10 @@ public class LectorQR extends AppCompatActivity
                 editor.putString("Descuento"+cantidad+1, descuento).commit();
                 editor.putString("Color"+cantidad+1, color).commit();
 
+                System.out.println("Producto: " + producto);
+                System.out.println("Descuento: " + descuento);
+                System.out.println("Color: " + color);
+
                 MostrarToast("Cupón guardado exitosamente");
 
             }

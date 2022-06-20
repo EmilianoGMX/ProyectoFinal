@@ -64,7 +64,6 @@ public class HomeFragment extends Fragment {
 
         for(int i = 1; i<cantidad; i++)
         {
-            MostrarToast("Hola");
             String producto = preferences.getString("Producto"+i, "Manzanas");
             String descuento = preferences.getString("Descuento"+i, "15%");
             String color = preferences.getString("Color"+i, "#C0392B");

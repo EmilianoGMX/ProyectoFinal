@@ -45,9 +45,6 @@ public class HomeFragment extends Fragment {
         elements.add(new ListElement("#7B241C", "75% de Descuento", "   Activo"));
         elements.add(new ListElement("#DAF7A6", "15% de Descuento", "   Activo"));
 
-
-
-
         ListAdapter listAdapter = new ListAdapter(elements, getContext());
         RecyclerView recyclerView = binding.RecyclerView;
         recyclerView.setHasFixedSize(true);

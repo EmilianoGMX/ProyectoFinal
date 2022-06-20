@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +58,49 @@ public class LectorQR extends AppCompatActivity
                 MostrarToast("No hay información");
             }else{
                 txtResultado.setText(resultado.getContents());
+                String respuesta = resultado.getContents();
+                String[] resultadoSplit = respuesta.split(",");
+
+                String producto = "";
+                String descuento = "";
+                String color = "";
+
+                for(int i = 0; i<resultadoSplit.length; i++)
+                {
+                    String[] variableValor = resultadoSplit[i].split(":");
+                    switch (variableValor[0])
+                    {
+                        case "Producto":
+                            producto = variableValor[1];
+                            break;
+
+                        case "Descuento":
+                            descuento = variableValor[1];
+                            break;
+
+                        case "Color":
+                            color = variableValor[1];
+                            break;
+                    }
+                }
+
+                SharedPreferences preferencias = getSharedPreferences("cupones", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferencias.edit();
+
+                int cantidad = preferencias.getInt("cantidad", 0);
+
+                if(cantidad != 0)
+                {
+                    editor.putInt("cantidad", 1).commit();
+                    cantidad = preferencias.getInt("cantidad", 0);
+                }
+
+                editor.putString("Producto"+cantidad+1, producto).commit();
+                editor.putString("Descuento"+cantidad+1, descuento).commit();
+                editor.putString("Color"+cantidad+1, color).commit();
+
+                MostrarToast("Cupón guardado exitosamente");
+
             }
         }else{
             super.onActivityResult(requestCode, resultCode, data);

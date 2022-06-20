@@ -89,13 +89,7 @@ public class LectorQR extends AppCompatActivity
 
                 int cantidad = preferencias.getInt("cantidad", 0);
 
-                if(cantidad == 0)
-                {
-                    editor.putInt("cantidad", 1).commit();
-                    cantidad = preferencias.getInt("cantidad", 0);
-                }else{
-                    editor.putInt("cantidad", cantidad++);
-                }
+                editor.putInt("cantidad", cantidad++);
 
                 editor.putString("Producto"+cantidad++, producto).commit();
                 editor.putString("Descuento"+cantidad++, descuento).commit();

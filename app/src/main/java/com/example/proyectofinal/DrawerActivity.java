@@ -1,9 +1,12 @@
 package com.example.proyectofinal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -13,9 +16,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.proyectofinal.databinding.ActivityDrawerBinding;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
-public class DrawerActivity extends AppCompatActivity{
+public class DrawerActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityDrawerBinding binding;
@@ -31,8 +33,8 @@ public class DrawerActivity extends AppCompatActivity{
         binding.appBarDrawer.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //click al lector
+                mapa();
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -62,5 +64,34 @@ public class DrawerActivity extends AppCompatActivity{
                 || super.onSupportNavigateUp();
     }
 
+    //click al mapa
+    public void mapa() {
+        Intent mapa = new Intent(this, Mapa.class);
+        startActivity(mapa);
+        finish();
+    }
+
+    //click al qr
+    public void qr() {
+        Intent qr = new Intent(this, LectorQR.class);
+        startActivity(qr);
+        finish();
+    }
+
+    //click de los item del menu
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.cam: {
+                qr();
+                return true;
+            }
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 
 }
+

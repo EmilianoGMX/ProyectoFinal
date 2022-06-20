@@ -89,7 +89,7 @@ public class LectorQR extends AppCompatActivity
 
                 int cantidad = preferencias.getInt("cantidad", 0);
 
-                editor.putInt("cantidad", cantidad++);
+                editor.putInt("cantidad", cantidad+3);
 
                 editor.putString("Producto"+cantidad++, producto);
                 editor.putString("Descuento"+cantidad++, descuento);

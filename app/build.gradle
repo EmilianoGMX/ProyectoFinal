@@ -52,5 +52,7 @@ dependencies {
     implementation 'com.google.zxing:core:3.3.0'
 
     //Mapas
+
+
     implementation 'org.osmdroid:osmdroid-android:6.0.3'
 }

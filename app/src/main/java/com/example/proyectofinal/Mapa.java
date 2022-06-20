@@ -30,7 +30,7 @@ public class Mapa extends AppCompatActivity
         Context contexto = getApplicationContext();                                                             //Contexto
         Configuration.getInstance().load(contexto, PreferenceManager.getDefaultSharedPreferences(contexto));    //Instancia
 
-        setContentView(R.layout.activity_mapa);
+        setContentView(R.layout.activity_mapa2);
 
         mapa = (MapView) findViewById(R.id.mapa);                   //Referencia a elemento
         mapa.setTileSource(TileSourceFactory.MAPNIK);               //Fuente de mosaicos

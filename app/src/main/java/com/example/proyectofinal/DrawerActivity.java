@@ -34,7 +34,7 @@ public class DrawerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //click al lector
-                mapa();
+                qr();
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -83,7 +83,7 @@ public class DrawerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.cam: {
-                qr();
+                mapa();
                 return true;
             }
 

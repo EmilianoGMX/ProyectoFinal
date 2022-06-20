@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/cam"
-        android:icon="@drawable/ic_store"
+        android:icon="@drawable/ic_baseline_map_24"
         android:title="tiendas"
         app:showAsAction="ifRoom" />
 </menu>

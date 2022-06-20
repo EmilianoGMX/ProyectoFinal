@@ -33,11 +33,12 @@ public class DrawerActivity extends AppCompatActivity {
         binding.appBarDrawer.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(getIntent());
+                overridePendingTransition(0, 0);
                 //click al lector
                 qr();
-
-                finish();
-                startActivity(getIntent());
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

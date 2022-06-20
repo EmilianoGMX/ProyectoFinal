@@ -42,18 +42,7 @@ public class HomeFragment extends Fragment {
     private void initComponents() {
         elements = new ArrayList<>();
         elements.add(new ListElement("#C0392B", "25% de Descuento", "   Activo"));
-        elements.add(new ListElement("#7B241C", "75% de Descuento", "   Activo"));
-        elements.add(new ListElement("#DAF7A6", "15% de Descuento", "   Activo"));
-        elements.add(new ListElement("#FFC300", "25% de Descuento", "   Activo"));
-        elements.add(new ListElement("#FF5733", "45% de Descuento", "   Activo"));
-        elements.add(new ListElement("#7FB3D5", "5% de Descuento ", "   Activo"));
-        elements.add(new ListElement("#BB8FCE", "25% de Descuento", "   Activo"));elements.add(new ListElement("#C0392B", "25% de Descuento", "   Activo"));
-        elements.add(new ListElement("#7B241C", "75% de Descuento", "   Activo"));
-        elements.add(new ListElement("#DAF7A6", "15% de Descuento", "   Activo"));
-        elements.add(new ListElement("#FFC300", "25% de Descuento", "   Activo"));
-        elements.add(new ListElement("#FF5733", "45% de Descuento", "   Activo"));
-        elements.add(new ListElement("#7FB3D5", "5% de Descuento ", "   Activo"));
-        elements.add(new ListElement("#BB8FCE", "25% de Descuento", "   Activo"));
+
 
 
         ListAdapter listAdapter = new ListAdapter(elements, getContext());
